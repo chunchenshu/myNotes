@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:wechat_test/pages/welcome.dart';
+import 'package:wechat_test/pages/layout/layout_page.dart';
 
 void main() {
   runApp(const MyApp());
@@ -12,9 +12,8 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: 'Flutter Demo',
-      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.deepPurple)),
-      home: Scaffold(body: Welcome()),
+      theme: ThemeData(colorScheme: .fromSeed(seedColor: Colors.white)),
+      home: LayoutPage(),
     );
   }
 }
