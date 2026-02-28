@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:wechat_test/common/widgets/custom_bar.dart';
+import 'package:wechat_test/pages/home/home_detail.dart';
 
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
@@ -10,7 +11,7 @@ class HomePage extends StatelessWidget {
 
     return DefaultTabController(
       length: tabs.length,
-      initialIndex: 0,
+      initialIndex: 1,
       child: Column(
         children: [
           SafeArea(bottom: false, child: CustomBar()),
@@ -26,10 +27,7 @@ class HomePage extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: tabs.map((e) {
-                return ListView.builder(
-                  itemCount: 20,
-                  itemBuilder: (_, i) => ListTile(title: Text('$e 内容 $i')),
-                );
+                return HomeDetail(name: e);
               }).toList(),
             ),
           ),

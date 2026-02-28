@@ -29,10 +29,7 @@ class SubjectPage extends StatelessWidget {
           Expanded(
             child: TabBarView(
               children: tabs.map((e) {
-                return ListView.builder(
-                  itemCount: 20,
-                  itemBuilder: (_, i) => ListTile(title: Text('$e 内容 $i')),
-                );
+                return  _getNestedScrollView(e);
               }).toList(),
             ),
           ),
@@ -40,4 +37,14 @@ class SubjectPage extends StatelessWidget {
       ),
     );
   }
+}
+
+Widget _getNestedScrollView(String e) {
+  return CustomScrollView(
+    slivers: [
+      SliverToBoxAdapter(
+        child: Container(),
+      )
+    ],
+  );
 }

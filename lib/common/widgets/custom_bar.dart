@@ -3,14 +3,21 @@ import 'package:flutter/material.dart';
 class CustomBar extends StatefulWidget {
   final Color color;
   final bool showText;
-  const CustomBar({super.key, this.color = Colors.green, this.showText = true});
+  final String? hintText;
+  final Function? onTap;
+  const CustomBar({
+    super.key,
+    this.color = Colors.green,
+    this.showText = true,
+    this.hintText,
+    this.onTap,
+  });
 
   @override
   State<CustomBar> createState() => _CustomBarState();
 }
 
 class _CustomBarState extends State<CustomBar> {
-  TextEditingController _controller = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -27,10 +34,14 @@ class _CustomBarState extends State<CustomBar> {
           widget.showText
               ? SizedBox(
                   width: 200,
+                  height: 37,
                   child: TextField(
-                    controller: _controller,
+                    onTap: widget.onTap != null ? () => widget.onTap!() : null,
+                    style: TextStyle(fontSize: 17),
                     decoration: InputDecoration(
                       filled: true,
+                      hintText: widget.hintText,
+                      hintStyle: TextStyle(fontSize: 17, color: Colors.grey),
                       prefixIcon: Icon(Icons.search, color: Colors.grey),
                       fillColor: Colors.grey[100],
                       contentPadding: EdgeInsets.symmetric(
