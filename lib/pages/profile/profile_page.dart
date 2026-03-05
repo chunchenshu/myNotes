@@ -13,6 +13,8 @@ class ProfilePage extends StatelessWidget {
             expandedHeight: 300,
             pinned: true,
             backgroundColor: Colors.white,
+            title: CustomBar(showText: false, color: Colors.white),
+            titleSpacing: 0,
             flexibleSpace: FlexibleSpaceBar(
               background: Stack(
                 children: [
@@ -37,7 +39,6 @@ class ProfilePage extends StatelessWidget {
                       ),
                     ),
                   ),
-                  _buildTopBar(),
                   _buildProfileInfo(),
                 ],
               ),
@@ -53,13 +54,6 @@ class ProfilePage extends StatelessWidget {
       ),
     );
   }
-}
-
-Widget _buildTopBar() {
-  return Align(
-    alignment: Alignment.topCenter,
-    child: SafeArea(child: CustomBar(showText: false, color: Colors.white)),
-  );
 }
 
 Widget _buildProfileInfo() {
